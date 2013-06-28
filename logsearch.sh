@@ -1,3 +1,5 @@
+#How to use this shell
+#logsearch.sh logFile smtpServer toEmail fromEmail
 grep -i '^ERROR' $1
 
 if [[ $? -eq 0 ]] ; then
