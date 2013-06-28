@@ -1,9 +1,6 @@
-#cat /home/ubuntu/Development/logsearch/log.txt | grep -i '^ERROR'
-
-#grep -i '^ERROR' /home/ubuntu/Development/logsearch/log.txt
 grep -i '^ERROR' $1
 
 if [[ $? -eq 0 ]] ; then
-	touch thereIsAnError.txt
+	mailsend -f $4 -smtp $2  -t $3 -sub "Log file: $1 with error(s)" -attach "$1"
 fi
 
